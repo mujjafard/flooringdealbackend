@@ -1,0 +1,47 @@
+const mongoose = require("mongoose");
+
+const productSchema = new mongoose.Schema(
+  {
+    name: { type: String, trim: true },
+    slug: { type: String, trim: true },
+    short_desc: { type: String, trim: true },
+    long_desc: { type: String, trim: true },
+    additional_info: { type: String, trim: true },
+    ship_policy: { type: String, trim: true },
+    price: { type: Number },
+    sale_price: { type: Number },
+    sku: { type: Number },
+    Collection_Name: { type: String },
+    installation_method: { type: String },
+    thickness: { type: String },
+    wear_layer_thickness: { type: String },
+    width: { type: String },
+    length: { type: String },
+    review: { type: Number },
+    ratings: { type: Number },
+    stock: { type: Number },
+    BestSeller: { type: Boolean },
+    newProduct: { type: Boolean },
+    IsmostViewed: { type: Boolean },
+    IsmostViewed: { type: Boolean },
+    isDiscount: { type: Boolean },
+    featured: { type: Boolean },
+    sold: { type: Number },
+    SuperCatID: { type: Number },
+    SuperCatName: { type: String },
+    CatID: { type: Number },
+    CatName: { type: String },
+    SubCatID: { type: Number },
+    SubCatName: { type: String },
+    BrandID: { type: Number },
+    BrandName: { type: String },
+    isAddon: { type: Boolean, default: false },
+    productPictures: [{ type: String }],
+    color: { type: String },
+    createdBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    updatedAt: { type: Date },
+  },
+  { timestamps: true }
+);
+
+module.exports = mongoose.model("Product", productSchema);
